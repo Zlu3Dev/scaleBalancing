@@ -4,95 +4,42 @@ import java.util.*;
 
 public class scaleBalancing {
 
-    //int[] input,int[] scale
-    private static void scaleBalance() {
-        Scanner scan = new Scanner(System.in);
+    public static String balanceCaculation(String[] strArray) {
+        //Caculate  the first array so we know the difference will be the abs(first - second) values.
+        String[] leftside= getlistValue(strArray[0]);
+        int diff = Math.abs(Integer.valueOf(leftside[0]) - Integer.valueOf(leftside[1]));
 
-        //declare the input value into an array.
-        int[] input = new int[2];
-        input[0] = scan.nextInt();
-        input[1] = scan.nextInt();
-        Arrays.sort(input);
-        for (int i = 0; i < 2; i++) {
-            if (i == input.length - 1) {
-                System.out.println(input[i]);
-            } else {
-                System.out.print(input[i] + ",");
+        //Getting the value for the second array
+        String[] rightside= getlistValue(strArray[1]);
+
+        //check if the rightsdie has the value == diff.
+        for (int i= 0; i < rightside.length; i++) {
+            //check if there is a value == diff
+            if (Integer.valueOf(rightside[i]) == diff) {
+                return rightside[i];
             }
-        }
-
-        //Given test data length
-        System.out.println("Input testing data length:");
-        int n = scan.nextInt();
-        System.out.println("Testing data length is:" + n);
-        int[] testData = new int[n];
-        System.out.println("Input test data:");
-        for (int i = 0; i < testData.length; i++) {
-            testData[i] = scan.nextInt();
-        }
-        Arrays.sort(testData);
-        System.out.println("Testing data are:");
-        for (int i = 0; i < testData.length; i++) {
-            if (i == testData.length - 1) {
-                System.out.println(testData[i]);
-            } else {
-                System.out.print(testData[i] + ",");
-            }
-        }
-        //Checking if they are balanced.
-        System.out.println("Comparing results:");
-
-        List<Integer> sumOne =  new ArrayList<>();
-        List<Integer> sumTwo =  new ArrayList<>();
-        int[] sum1 =  new int[n];
-        for(int i = 0; i < n;i++){
-            System.out.println(sum1[i]);
-        }
-        int[] sum2 =  new int[n];
-        for(int i = 0; i < n;i++){
-            System.out.println(sum2[i]);
-        }
-        //ArrayList<Integer> results = new ArrayList<Integer>();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-
-                sumOne = subsets(sum1,input[0]);
-                //System.out.print(sum1);
-                sumTwo = subsets(sum2,input[1]);
-                //System.out.print(sum2);
-
-                if (sum1 == sum2 || input[1] == sumOne.get(i)) {
-                    System.out.println(testData[i] + "," + testData[j]);
-                } else {
-                    System.out.println("No possible solution. Please try again!");
-                    break;
+            for (int j= i+1; j < rightside.length; j++) {
+                //check if the sum of the two values from the rightside == diff
+                if (Integer.valueOf(rightside[i]) + Integer.valueOf(rightside[j]) == diff) {
+                    return "" + rightside[i] + "," + rightside[j];
+                    //check the minus for rightside of two values == diff
+                } else if (Integer.valueOf(rightside[j]) - Integer.valueOf(rightside[i]) == diff) {
+                    return "" + rightside[i] + "," + rightside[j];
                 }
             }
         }
+        return "No possible solution. Please try again";
     }
 
-
-
-    private static void helper(int[] nums, List<Integer> results, int i, int a){
-        if(i < 0){
-            System.out.println(results);
-        }
-        results.add(nums[i] + a);
-        helper(nums,results, i - 1, a);
-        results.remove(results.size() - 1);
-        while( i > 0 && nums[i] == nums[ i -1]){
-            i--;
-        }
-        helper(nums,results, i - 1, a);
+    //Using regex to split the the string based on the whitespace. so we will get the weights.
+    public static String[] getlistValue(String values) {
+        String[] rightside = values.substring(1,values.length()-1).split(",\\s");
+        return rightside;
     }
-    public static List<Integer>  subsets(int[] num, int a) {
-        List<Integer> list = new ArrayList<>();
-        helper(num,new ArrayList<>(),0,a);
-        return list;
+    
+    public static void main (String[] args) {
+        // Using the format by only change the variables.
+       System.out.print(balanceCaculation(new String[] {"[4, 7]", "[1, 2, 3, 6, 14]"}));
     }
 
-    public static void main(String[] args){
-        System.out.println("Please enter two numbers:");
-        scaleBalance();
-    }
 }
