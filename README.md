@@ -17,6 +17,6 @@ will now equal 11 and they are perfectly balanced.
 
     * [Solution files](https://github.com/Zlu3Dev/scaleBalancing/blob/master/scaleBalancing.java)
     * [Solution explaination](https://github.com/Zlu3Dev/scaleBalancing/blob/master/solution%20explaination)
-    * [Testing cases]()
+    * [Testing cases](https://github.com/Zlu3Dev/scaleBalancing/blob/master/TestCase)
    
     
