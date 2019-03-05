@@ -1,0 +1,4 @@
+Solution explanation:
+1.Using regex to split the the string based on the whitespace. so we will get the weights.
+2.Then we need to find the absolute difference for the two values from input.
+3.Then we compare the results from the list to see if there is any values equals the difference from input values.
