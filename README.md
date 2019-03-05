@@ -15,7 +15,7 @@ with a weight of 5 on the left side and 9 on the right side. It is possible to b
 adding a 6 to the left side from the list of weights and adding a 2 to the right side. Both scales
 will now equal 11 and they are perfectly balanced.
 
-    * [Solution files](https://help.github.com/articles/set-up-git/)
+    * [Solution files](https://github.com/Zlu3Dev/scaleBalancing/blob/master/scaleBalancing.java)
     * [Solution explaination](https://help.github.com/articles/set-up-git/)
    
     
