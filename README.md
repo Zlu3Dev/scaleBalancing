@@ -3,9 +3,6 @@ This is a project for scaleBalancing program
 
 Repository creator- Zhiyong Lu has the copyrights for the contents in this repository. Please do not share the information unless owner authorized.
 
-# Creator :
- * [Zhiyong Lu](https://www.linkedin.com/in/zhiyong-lu-2a054041/)
-
 # 
  * Questions
  Create a script that will accept two elements, the first being the two positive integer weights on
